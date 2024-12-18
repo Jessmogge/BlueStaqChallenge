@@ -1,5 +1,4 @@
 # BlueStaqChallenge
-Challenge to create a data repository for a library cataloging system
 
 Database Challenge 1
 You are tasked with designing a simple library management system that includes the following entities: books, authors, and borrowers.
