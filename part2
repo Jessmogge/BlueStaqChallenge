@@ -11,7 +11,12 @@ CREATE TABLE Books (
     BookName VARCHAR(255) NOT NULL,      -- Name of the book
     Description TEXT,                    -- Description of the book
     Genre VARCHAR(100),                  -- Genre of the book
-    AuthorID INT                            -- Foriegn Key referencing the Authors table
+    AuthorID INT,                        -- Foriegn Key referencing the Authors table
+    BorrowerID INT,                      -- Foreign key referencing Borrowers table
+    CheckOutDate DATE NOT NULL,          -- Date of the Checkout
+    DueDate DATE NOT NULL,               -- Date book is due
+    Renewals INT,                        -- Number of times the book has been renewed
+    FOREIGN KEY (BorrowerID) REFERENCES Borrowers(BorrowerID), -- Define relationship with Borrowers
     FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID) -- Define relationship with Authors
 );
 
@@ -26,17 +31,5 @@ CREATE TABLE Borrowers (
     Country VARCHAR(100)                 -- Country of the Borrower
     Email VARCHAR(100),                  -- Email address of the Borrower
     PhoneNumber VARCHAR(20)              -- Phone number of the Borrower
-
 );
 
--- Create the CheckOuts table to represent one-to-many relationship between Borrowers and Books
-CREATE TABLE CheckOuts (
-    CheckOutID INT PRIMARY KEY,       -- Primary key for CheckOutID
-    BookID INT,                         -- Foreign key referencing Books table
-    BorrowerID INT,                     -- Foreign key referencing Borrowers table
-    CheckOutDate DATE NOT NULL,         -- Date of the Checkout
-    DueDate DATE NOT NULL,              -- Date book is due
-    Renewals INT,                       -- Number of times the book has been renewed
-    FOREIGN KEY (BookID) REFERENCES Books(BookID),      -- Define relationship with Books
-    FOREIGN KEY (BorrowerID) REFERENCES Borrowers(BorrowerID) -- Define relationship with Borrowers
-);
