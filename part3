@@ -1,0 +1,17 @@
+-- Create the stored procedure
+CREATE PROCEDURE InsertBook(
+IN p_BookID INT, 
+IN p_BookName VARCHAR(255), 
+IN p_Description TEXT, 
+IN p_Genre VARCHAR(100), 
+IN p_AuthorID INT
+)
+BEGIN
+-- Insert data into Books table
+INSERT INTO Books (BookID, BookName, Description, Genre, AuthorID)
+VALUES(p_BookID, p_BookName, p_Description, p_Genre, p_AuthorID);
+END
+
+
+-- Call the InsertBook stored procedure to insert a new record
+CALL InsertBook(1, 'War and Peace', 'Often called the greatest novel ever written, War and Peace is at once an epic of the Napoleonic wars, a philosophical study, and a celebration of the Russian spirit. Tolstoy's genius is clearly seen in the multitude of characters in this massive chronicle, all of them fully realized and equally memorable.', 'Fiction', 50);
