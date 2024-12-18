@@ -1,0 +1,6 @@
+--Create indexes to impove query speed
+CREATE INDEX BookIndex
+ON Books (BookName);
+
+CREATE INDEX AuthorIndex
+ON Authors (FirstName, LastName);
