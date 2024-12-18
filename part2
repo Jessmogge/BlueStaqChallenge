@@ -8,10 +8,10 @@ CREATE TABLE Authors (
 -- Create the Books table
 CREATE TABLE Books (
     BookID INT PRIMARY KEY,           -- Primary key for BookID
-    ProductName VARCHAR(100) NOT NULL,   -- Name of the book
+    BookName VARCHAR(255) NOT NULL,      -- Name of the book
     Description TEXT,                    -- Description of the book
-    Genre TEXT,                          -- Genre of the book
-    AuthorID INT                             -- Foriegn Key referencing the Authors table
+    Genre VARCHAR(100),                  -- Genre of the book
+    AuthorID INT                            -- Foriegn Key referencing the Authors table
     FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID) -- Define relationship with Authors
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE Borrowers (
     Address VARCHAR(255),                -- Address of the Borrower
     City VARCHAR(100),                   -- City of the Borrower
     PostalCode VARCHAR(20),              -- Postal code of the Borrower
-    Country VARCHAR(50)                  -- Country of the Borrower
+    Country VARCHAR(100)                 -- Country of the Borrower
     Email VARCHAR(100),                  -- Email address of the Borrower
     PhoneNumber VARCHAR(20)              -- Phone number of the Borrower
 
